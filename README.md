@@ -1,4 +1,4 @@
-# Dependancies
+# Dependencies
 You must download the following Matlab code into your workspace before running the calibration: https://github.com/Razor-AHRS/razor-9dof-ahrs/tree/master/Matlab/magnetometer_calibration, since it is used for the magnetometer calibration.
 
 # Sensor calibration
@@ -33,10 +33,12 @@ Each calibration mode will return a set of values, that are used for the calibra
 Once you have reached this point, you should have the minimum and maximum values of the accelerometer per axis. Lets note this values as `maxX, maxY, maxZ` and `minX, minY, minZ`. Note that if you are using `Gs` these values should be around `1` and `-1`.
 
 <center>
+
 |           | 1ºPair | 2ºPair | 2ºPair |
 |-----------|--------|--------|--------|
 | 1ºTriplet | maxX   | maxY   | maxZ   |
 | 2ºTriplet | minX   | minY   | minZ   |
+
 </center>
 
 In this table you can see how you have to move your sensor to read all the possible values that we have mentioned. Note that it is very important that you don't induce external acceleration to the sensor, so move it slowly.
