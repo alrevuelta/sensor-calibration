@@ -27,12 +27,50 @@ There are three calibration modes, one for each sensor. Modify the variable `cal
 * `calibrate=2` reads the magnetometer values. In this mode you have to move the sensor around the space, trying to cover all the possible points in an imaginary sphere. After 30 seconds, the measurement will finish and you will be given the ellipsoid fit parameters. Without going to much into details, this algorithm peforms a matrix transformation, where an ellipse is transformed into a sphere given some parameters.
 
 # Accelerometer calibration
+
+
+|           | 1ºPair | 2ºPair | 2ºPair |
+|-----------|--------|--------|--------|
+| 1ºTriplet | maxX   | maxY   | maxZ   |
+| 2ºTriplet | minX   | minY   | minZ   |
+
 <p align="center">
   <img width="700" height="400" src="https://github.com/alrevuelta/sensor-calibration/blob/master/img/accel_calib.png">
 </p>
 
 <p align="center">
-  <img src="https://latex.codecogs.com/gif.latex?Offset_x&space;=&space;\frac{min_x&space;&plus;&space;max_x}{2}">
+  <img src="https://latex.codecogs.com/gif.latex?offset_x&space;=&space;\frac{min_x&space;&plus;&space;max_x}{2}">
+</p>
+
+<p align="center">
+  <img src="https://latex.codecogs.com/gif.latex?offset_y&space;=&space;\frac{min_y&space;&plus;&space;max_y}{2}">
+</p>
+
+<p align="center">
+  <img src="https://latex.codecogs.com/gif.latex?offset_z&space;=&space;\frac{min_z&space;&plus;&space;max_z}{2}">
+</p>
+
+<p align="center">
+  <img src="https://latex.codecogs.com/gif.latex?scale_x&space;=&space;\frac{1}{max_x&space;-&space;offset_x}">
+</p>
+
+<p align="center">
+  <img src="https://latex.codecogs.com/gif.latex?scale_y&space;=&space;\frac{1}{max_y&space;-&space;offset_y}">
+</p>
+
+<p align="center">
+  <img src="https://latex.codecogs.com/gif.latex?scale_z&space;=&space;\frac{1}{max_z&space;-&space;offset_z}">
+</p>
+
+Resulting values
+<p align="center">
+  <img src="https://latex.codecogs.com/gif.latex?calibrated_x&space;=&space;(acc_x&space;-&space;offset_x)scale_x">
+</p>
+<p align="center">
+  <img src="https://latex.codecogs.com/gif.latex?calibrated_y&space;=&space;(acc_y&space;-&space;offset_y)scale_y">
+</p>
+<p align="center">
+  <img src="https://latex.codecogs.com/gif.latex?calibrated_z&space;=&space;(acc_z&space;-&space;offset_z)scale_z">
 </p>
 
 # Gyroscope calibration
